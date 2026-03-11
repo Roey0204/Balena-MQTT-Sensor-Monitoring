@@ -1,0 +1,25 @@
+name: MQTT GPIO Sensor Monitor
+type: sw.application
+description: >-
+  A Balena application for reading GPIO pin 14 on Raspberry Pi and publishing 
+  sensor data to a public MQTT broker. Perfect for IoT sensor monitoring projects.
+version: 1.0.0
+assets:
+  repository:
+    type: git
+  logo:
+    src: https://raw.githubusercontent.com/balena-io/balena-sound/master/logo.png
+    type: image/png
+data:
+  applicationEnvironmentVariables:
+    - MQTT_BROKER: broker.hivemq.com
+    - MQTT_PORT: 1883
+    - MQTT_TOPIC: balena/gpio/sensor
+    - SENSOR_INTERVAL: 5
+    - GPIO_PIN: 14
+  defaultDeviceType: raspberrypi4-64
+  supportedDeviceTypes:
+    - raspberrypi3
+    - raspberrypi3-64
+    - raspberrypi4-64
+    - raspberrypi5
